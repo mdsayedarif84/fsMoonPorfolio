@@ -19,76 +19,19 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{asset('frontend/css/icomoon.css')}}">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap.css')}}">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{asset('frontend/css/flexslider.css')}}">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="{{asset('frontend/fonts/flaticon/font/flaticon.css')}}">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
-
-	<!-- Modernizr JS -->
-	<script src="{{asset('frontend/js/modernizr-2.6.2.min.js')}}"></script>
+	@include('frontend.links.css')
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
 	<div id="colorlib-page">
 		<div class="container-wrap">
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-				{{-- sidebar --}}
-				<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-					<div class="text-center">
-						<div class="author-img" style="background-image: url('{{asset('frontend/images/about.jpg')}}');"></div>
-						<h1 id="colorlib-logo"><a href="index.html">Jackson Ford</a></h1>
-						<span class="position"><a href="#">UI/UX/Designer</a> in Philippines</span>
-					</div>
-					<nav id="colorlib-main-menu" role="navigation" class="navbar">
-						<div id="navbar" class="collapse">
-							<ul>
-								<li class="active"><a href="#" data-nav-section="home">Home</a></li>
-								<li><a href="#" data-nav-section="about">About</a></li>
-								<li><a href="#" data-nav-section="services">Services</a></li>
-								<li><a href="#" data-nav-section="skills">Skills</a></li>
-								<li><a href="#" data-nav-section="education">Education</a></li>
-								<li><a href="#" data-nav-section="experience">Experience</a></li>
-								<li><a href="#" data-nav-section="work">Work</a></li>
-								<li><a href="#" data-nav-section="blog">Blog</a></li>
-								<li><a href="#" data-nav-section="contact">Contact</a></li>
-							</ul>
-						</div>
-					</nav>
-		
-					<div class="colorlib-footer">
-						<p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span> <span>Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>
-						<ul>
-							<li><a href="#"><i class="icon-facebook2"></i></a></li>
-							<li><a href="#"><i class="icon-twitter2"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-						</ul>
-					</div>
-				</aside>
+			{{-- sidebar --}}
+			@include('frontend.includes.sidebar')
 			<div id="colorlib-main">
 				<section id="colorlib-hero" class="js-fullheight" data-section="home">
 					<div class="flexslider js-fullheight">
@@ -128,7 +71,7 @@
 						</ul>
 					</div>
 				</section>
-
+		
 				<section class="colorlib-about" data-section="about">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -181,7 +124,7 @@
 						</div>
 					</div>
 				</section>
-				
+		
 				<section class="colorlib-services" data-section="services">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -260,7 +203,7 @@
 						</div>
 					</div>
 				</section>
-				
+		
 				<div id="colorlib-counter" class="colorlib-counters" style="background-image: url('{{asset('frontend/images/cover_bg_1.jpg')}}');" data-stellar-background-ratio="0.5">
 					<div class="overlay"></div>
 					<div class="colorlib-narrow-content">
@@ -286,7 +229,7 @@
 						</div>
 					</div>
 				</div>
-
+		
 				<section class="colorlib-skills" data-section="skills">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -430,7 +373,7 @@
 												</div>
 											</div>
 										</div>
-
+		
 										<div class="panel panel-default">
 											<div class="panel-heading" role="tab" id="headingFour">
 												<h4 class="panel-title">
@@ -444,7 +387,7 @@
 												</div>
 											</div>
 										</div>
-
+		
 										<div class="panel panel-default">
 											<div class="panel-heading" role="tab" id="headingFive">
 												<h4 class="panel-title">
@@ -464,7 +407,7 @@
 						</div>
 					</div>
 				</section>
-
+		
 				<section class="colorlib-experience" data-section="experience">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -478,19 +421,19 @@
 							<div class="timeline-centered">
 								<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
 									<div class="timeline-entry-inner">
-
+		
 									<div class="timeline-icon color-1">
 										<i class="icon-pen2"></i>
 									</div>
-
+		
 									<div class="timeline-label">
 										<h2><a href="#">Full Stack Developer</a> <span>2017-2018</span></h2>
 										<p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
 									</div>
 									</div>
 								</article>
-
-
+		
+		
 								<article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
 									<div class="timeline-entry-inner">
 									<div class="timeline-icon color-2">
@@ -502,7 +445,7 @@
 									</div>
 									</div>
 								</article>
-
+		
 								<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
 									<div class="timeline-entry-inner">
 									<div class="timeline-icon color-3">
@@ -514,7 +457,7 @@
 									</div>
 									</div>
 								</article>
-
+		
 								<article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
 									<div class="timeline-entry-inner">
 									<div class="timeline-icon color-4">
@@ -526,7 +469,7 @@
 									</div>
 									</div>
 								</article>
-
+		
 								<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
 									<div class="timeline-entry-inner">
 									<div class="timeline-icon color-5">
@@ -538,7 +481,7 @@
 									</div>
 									</div>
 								</article>
-
+		
 								<article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
 									<div class="timeline-entry-inner">
 									<div class="timeline-icon color-none">
@@ -550,7 +493,7 @@
 					</div>
 					</div>
 				</section>
-
+		
 				<section class="colorlib-work" data-section="work">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -663,7 +606,7 @@
 						</div>
 					</div>
 				</section>
-
+		
 				<section class="colorlib-blog" data-section="blog">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -711,7 +654,7 @@
 						</div>
 					</div>
 				</section>
-
+		
 				<section class="colorlib-contact" data-section="contact">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -730,7 +673,7 @@
 										<p><a href="#">info@domain.com</a></p>
 									</div>
 								</div>
-
+		
 								<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
 									<div class="colorlib-icon">
 										<i class="icon-map"></i>
@@ -739,7 +682,7 @@
 										<p>198 West 21th Street, Suite 721 New York NY 10016</p>
 									</div>
 								</div>
-
+		
 								<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
 									<div class="colorlib-icon">
 										<i class="icon-phone"></i>
@@ -776,31 +719,12 @@
 						</div>
 					</div>
 				</section>
-
-			</div>
+			</div>			
 			<!-- end:colorlib-main -->
 		</div><!-- end:container-wrap -->
 	</div><!-- end:colorlib-page -->
-
 	<!-- jQuery -->
-	<script src="{{asset('frontend/js/jquery.min.js')}}"></script>
-	<!-- jQuery Easing -->
-	<script src="{{asset('frontend/js/jquery.easing.1.3.js')}}"></script>
-	<!-- Bootstrap -->
-	<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
-	<!-- Waypoints -->
-	<script src="{{asset('frontend/js/jquery.waypoints.min.js')}}"></script>
-	<!-- Flexslider -->
-	<script src="{{asset('frontend/js/jquery.flexslider-min.js')}}"></script>
-	<!-- Owl carousel -->
-	<script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
-	<!-- Counters -->
-	<script src="{{asset('frontend/js/jquery.countTo.js')}}"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="{{asset('frontend/js/main.js')}}"></script>
-
+	@include('frontend.links.js')
 	</body>
 </html>
 
