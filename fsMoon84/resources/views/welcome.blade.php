@@ -27,23 +27,27 @@
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 	{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="{{asset('frontend/css/icomoon.css')}}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap.css')}}">
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="{{asset('frontend/css/flexslider.css')}}">
 	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="{{asset('frontend/fonts/flaticon/font/flaticon.css')}}">
 	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-
+	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="{{asset('frontend/js/modernizr-2.6.2.min.js')}}"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -56,7 +60,7 @@
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 			<div class="text-center">
-				<div class="author-img" style="background-image: url(images/about.jpg);"></div>
+				<div class="author-img" style="background-image: url('{{asset('frontend/images/about.jpg')}}');"></div>
 				<h1 id="colorlib-logo"><a href="index.html">Jackson Ford</a></h1>
 				<span class="position"><a href="#">UI/UX/Designer</a> in Philippines</span>
 			</div>
@@ -78,8 +82,8 @@
 
 			<div class="colorlib-footer">
 				<p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span> <span>Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>
+				Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+				!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span> <span>Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>
 				<ul>
 					<li><a href="#"><i class="icon-facebook2"></i></a></li>
 					<li><a href="#"><i class="icon-twitter2"></i></a></li>
@@ -786,23 +790,21 @@ Copyright <script>document.write(new Date().getFullYear());</script> All rights 
 	</div><!-- end:colorlib-page -->
 
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="{{asset('frontend/js/jquery.min.js')}}"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="{{asset('frontend/js/jquery.easing.1.3.js')}}"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="{{asset('frontend/js/jquery.waypoints.min.js')}}"></script>
 	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="{{asset('frontend/js/jquery.flexslider-min.js')}}"></script>
 	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
 	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	
-	
+	<script src="{{asset('frontend/js/jquery.countTo.js')}}"></script>
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="{{asset('frontend/js/main.js')}}"></script>
 
 	</body>
 </html>
