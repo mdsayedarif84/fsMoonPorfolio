@@ -10,12 +10,12 @@ use App\Models\About;
 class AboutController extends Controller{
     public function index(){
         $categories   =   Category::where('status',1)->get();
-        return view('admin.about.addAbout',['categories' => $categories,]);
+        return view('admin.about.addAbout',['categories' => $categories]);
     }
     protected function validationAbout($request){
         $this->validate($request,
             [
-                'title' => 'required|unique:abouts|regex:/^[a-zA-ZÑñ\s]+$/',
+                'title' => 'required|unique:abouts|regex:/^[a-zA-Z\s?]*$/',
                 'category_id' => 'required',
                 'about_us' => 'required',
                 'short_msg' => 'required',
@@ -23,7 +23,7 @@ class AboutController extends Controller{
             ],
             [
                 'title.required' => 'You have to choose Title name!',
-                'title.regex' => 'Letter & Space only Accepted!',
+                'title.regex' => 'Letter, Question Mark & Space only Accepted!',
                 'category_id.required' => 'Select Category name!',
                 'about_us.required' => 'Write About Myself!',
                 'short_msg.required' => 'Write something You Know!',
@@ -39,9 +39,64 @@ class AboutController extends Controller{
         $about->about_us = $request->about_us;
         $about->short_msg = $request->short_msg;
         $about->status = $request->status;
-        return $about;
         $about->save();
-        return redirect('/about')->with('message', 'Category Save Successfully ');;
+        return redirect('/about')->with('message', 'About Save Successfully ');;
     }
-    
+    public function manageAbout(){
+        $abouts = About::all();
+        return view('admin.about.manageAbout',['abouts'=>$abouts]);
+    }
+    public function inactiveAbout($id){
+        $about = About::find($id);
+        $about->status = 0;
+        $about->save();
+        return redirect('manage/about')->with('message', 'About info inactive successfully');
+    }
+    public function activeAbout($id){
+        $about = About::find($id);
+        $about->status = 1;
+        $about->save();
+        return redirect('manage/about')->with('message', 'About info active successfully');
+    }
+    public function editAbout($id){
+        $about = About::find($id);
+        $categories   =   Category::where('status',1)->get();
+        return view('admin.about.editAbout', [
+            'about' => $about,
+            'categories' => $categories,
+        ]);
+    }
+    public function updateAbout(Request $request){
+        $this->validate($request,
+            [
+                'title' => 'required|regex:/^[a-zA-Z\s?]*$/',
+                'category_id' => 'required',
+                'about_us' => 'required',
+                'short_msg' => 'required',
+                'status' => 'required',
+            ],
+            [
+                'title.required' => 'You have to choose Title name!',
+                'title.regex' => 'Letter, Question Mark & Space only Accepted!',
+                'category_id.required' => 'Select Category name!',
+                'about_us.required' => 'Write About Myself!',
+                'short_msg.required' => 'Write something You Know!',
+                'status.required' => 'You have to choose type status!'
+            ]
+        );
+        $aboutById = About::find($request->about_id);
+        $aboutById->title = $request->title;
+        $aboutById->category_id = $request->category_id;
+        $aboutById->about_us = $request->about_us;
+        $aboutById->short_msg = $request->short_msg;
+        $aboutById->status = $request->status;
+        $aboutById->save();
+        return redirect('/manage/about')->with('message', 'About update Successfully ');;
+    }
+    public function deleteCategory($id){
+        $about = About::find($id);
+        return $about;
+        $about->delete();
+        return redirect('manage/about')->with('message', 'About Info Delete Successfully');
+    }
 }

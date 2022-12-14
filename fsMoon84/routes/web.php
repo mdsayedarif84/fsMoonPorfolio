@@ -34,4 +34,12 @@ Route::get('/delete/category/{id}',[CategoryController::class,'deleteCategory'])
 
 Route::get('/about',[AboutController::class, 'index'])->name('about');
 Route::post('/save/about',[AboutController::class,'saveAboutInfo'])->name('new.about');
+Route::get('/manage/about',[AboutController::class,'manageAbout'])->name('manage.about');
+Route::get('/inactive{id}',[AboutController::class,'inactiveAbout'])->name('inactive.about');
+Route::get('/active{id}',[AboutController::class,'activeAbout'])->name('active.about');
+Route::get('/edit/about/{id}',[AboutController::class,'editAbout'])->name('edit.about');
+Route::post('/update/about',[AboutController::class,'updateAbout'])->name('update.about');
+Route::post('/delete/about/{id}',[AboutController::class,'deleteAbout'])->name('delete.about');
+
+
 

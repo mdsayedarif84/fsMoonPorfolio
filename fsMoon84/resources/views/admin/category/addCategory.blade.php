@@ -37,8 +37,8 @@
                                     <div class="col-sm-8">
                                         <select class="form-control @error('status') is-invalid @enderror" name="status">
                                             <option  disabled selected >Select Option</option>
-                                            <option value="1">published</option>
-                                            <option value="0">Unpublished</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                         @error('status')
                                             <span class="invalid-feedback" role="alert">

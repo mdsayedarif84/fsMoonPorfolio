@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('category_id');
             $table->text('about_us');
+            $table->tinyInteger('status');
             $table->text('short_msg');
             $table->timestamps();
         });
