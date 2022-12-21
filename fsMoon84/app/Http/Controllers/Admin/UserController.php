@@ -34,10 +34,12 @@ class UserController extends Controller{
         $profile = new Profile();
         $id = User::select('id')->where('email', $request->email)->first();
         $profile->user_id = $id->id;
+        
         $profile->image = $imageUrl;
         $profile->designation = $request->designation;
         $profile->phone_number = $request->phone_number;
         $profile->save();
+        // $user_id=session::put($id);
     }
 
     public function sotre(Request $request){
