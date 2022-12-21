@@ -5,6 +5,8 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +28,8 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/category',[CategoryController::class, 'index'])->name('category');
 Route::post('/save/category',[CategoryController::class,'saveCategoryInfo'])->name('new.category');
 Route::get('/manage/category',[CategoryController::class,'manageCategoryInfo'])->name('manage.category');
-Route::get('/inactive{id}',[CategoryController::class,'inactiveCategory'])->name('inactive.category');
-Route::get('/active{id}',[CategoryController::class,'activeCategory'])->name('active.category');
+Route::get('/inactive/{id}',[CategoryController::class,'inactiveCategory'])->name('inactive.category');
+Route::get('/active/{id}',[CategoryController::class,'activeCategory'])->name('active.category');
 Route::get('/edit/category/{id}',[CategoryController::class,'editCategory'])->name('edit.category');
 Route::post('/update/category',[CategoryController::class,'updateCategory'])->name('update.category');
 Route::get('/delete/category/{id}',[CategoryController::class,'deleteCategory'])->name('delete.category');
@@ -40,6 +42,14 @@ Route::get('/active{id}',[AboutController::class,'activeAbout'])->name('active.a
 Route::get('/edit/about/{id}',[AboutController::class,'editAbout'])->name('edit.about');
 Route::post('/update/about',[AboutController::class,'updateAbout'])->name('update.about');
 Route::post('/delete/about/{id}',[AboutController::class,'deleteAbout'])->name('delete.about');
+
+Route::get('/service',[ServiceController::class, 'index'])->name('add.service');
+
+Route::get('/user',[UserController::class, 'index'])->name('add.user');
+Route::post('/save/user',[UserController::class,'sotre'])->name('new.user');
+Route::get('/manage/user',[UserController::class,'manageUserInfo'])->name('manage.user');
+
+
 
 
 

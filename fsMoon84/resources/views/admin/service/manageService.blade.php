@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-danger text-bold">  Manage About
-                            <a href="{{route('about')}}" class="btn btn-danger btn-sm float-right">
+                            <a href="{{route('category')}}" class="btn btn-danger btn-sm float-right">
                                 <i class="far fa-hand-point-right"> </i>Add About</a>
                         </h4>
                     </div>
@@ -22,9 +22,9 @@
                             <table class="table table-hover table-striped table-responsive" id="example1">
                                 <thead>
                                     <tr class="text-center" >
-                                        <th style="width: 50px;">No</th>
+                                        <th style="width: 100px;">No</th>
                                         <th style="width: 200px;">Headding name</th>
-                                        <th style="width: 150px;">Category Name</th>
+                                        <th style="width: 100px;">CategoryId</th>
                                         <th style="width: 100px;">Status</th>
                                         <th style="width: 200px;">ShortMsg</th>
                                         <th style="width: 100px;">Action</th>
@@ -36,7 +36,7 @@
                                         <tr class="text-center">
                                             <td>{{$i++}}</td>
                                             <td>{{$about->title}}</td>
-                                            <td>{{$about->category_name}}</td>
+                                            <td>{{$about->category_id}}</td>
                                             <td>{{$about->status == 1 ? 'Active':'Inactive'}}</td>
                                             <td>{{$about->short_msg}}</td>
                                             <td class="table-action">

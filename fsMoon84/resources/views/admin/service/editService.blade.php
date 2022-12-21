@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    About
+    EditAbout
 @endsection
 @section('body')
 <div class="content-wrapper ">
@@ -19,15 +19,15 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('new.about')}}" method="POST" class="form-horizontal" >
+                        <form action="{{route('update.about')}}" method="POST" id="editAboutForm" class="form-horizontal" >
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
                                         <div class="form-group row">
-                                            <label for="title" class="col-sm-4 col-form-label text-right">Head Title </label>
+                                            <label for="title" class="col-sm-4 col-form-label text-right">Headding Name</label>
                                             <div class="col-sm-8">
-                                                <input type="text" value="{{ old('title') }}" name="title" class="form-control @error('title') is-invalid @enderror""  placeholder="Enter About Name" >
+                                                <input type="text" value="{{ $about->title }}" name="title" class="form-control @error('title') is-invalid @enderror""  placeholder="Enter About Name" >
                                                 @error('title')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->has('title') ? $errors->first('title') : ' '  }}</strong>
@@ -40,10 +40,10 @@
                                         <div class="form-group row">
                                             <label for="category_id" class="col-sm-4 col-form-label text-right">Category name</label>
                                             <div class="col-sm-8">
-                                                <select name="category_id" value="{{ old('category_id') }}" class="form-select @error('category_id') is-invalid @enderror" >
+                                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" >
                                                     <option disabled selected>Select Option</option>
                                                     @foreach($categories as $category)
-                                                        <option value="{!! $category->id !!}"> {!! $category->category_name !!} </option>
+                                                        <option value="{!! $category->id !!}">{!! $category->category_name !!}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('category_id')
@@ -56,9 +56,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" name="about_id" class="form-control form-control-user" value="{!! $about->id !!}">
+                                    </div>
+                                    <div class="col-sm-4"></div>
+                                </div>
+                                <div class="form-group row">
                                     <label for="about_us" class="col-sm-2 text-right">About Us</label>
                                     <div class="col-sm-10">
-                                        <textarea type="text" value="{{ old('about_us') }}" name="about_us" class="form-control @error('about_us') is-invalid @enderror"></textarea>
+                                        <textarea type="text" name="about_us" class="form-control @error('about_us') is-invalid @enderror">{{ $about->about_us }}</textarea>
                                         @error('about_us')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->has('about_us') ? $errors->first('about_us') : ' '  }}</strong>
@@ -69,7 +76,7 @@
                                 <div class="form-group row">
                                     <label for="status" class="col-sm-4 col-form-label text-right">Status</label>
                                     <div class="col-sm-8">
-                                        <select value="{{ old('status') }}" class="form-control  @error('status') is-invalid @enderror" name="status">
+                                        <select class="form-control  @error('status') is-invalid @enderror" name="status">
                                             <option  disabled selected >Select Option</option>
                                             <option value="1">Active</option>
                                             <option value="0">Inactive</option>
@@ -82,9 +89,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label value="{{ old('short_msg') }}" for="short_msg" class="col-sm-2  text-right">Short Message Us</label>
+                                    <label  for="short_msg" class="col-sm-2  text-right">Short Message Us</label>
                                     <div class="col-sm-10">
-                                        <textarea type="text" name="short_msg" class="form-control @error('short_msg') is-invalid @enderror" ></textarea>
+                                        <textarea  type="text" name="short_msg" class="form-control @error('short_msg') is-invalid @enderror" >{{ $about->short_msg }}</textarea>
                                         @error('short_msg')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->has('short_msg') ? $errors->first('short_msg') : ' '  }}</strong>
@@ -106,5 +113,9 @@
         </div>
     </div>
 </div>
+<script>
+    document.forms['editAboutForm'].elements['status'].value = '{!! $about->status !!}';
+    document.forms['editAboutForm'].elements['category_id'].value='{{ $about->category_id }}';
+</script>
 @endsection
 

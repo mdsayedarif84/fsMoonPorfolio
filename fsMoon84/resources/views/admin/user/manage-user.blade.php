@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    ManageAbout
+    ManageUser
 @endsection
 @section('body')
 <div class="content-wrapper ">
@@ -12,9 +12,9 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-danger text-bold">  Manage About
-                            <a href="{{route('about')}}" class="btn btn-danger btn-sm float-right">
-                                <i class="far fa-hand-point-right"> </i>Add About</a>
+                        <h4 class="text-danger text-bold">  Manage User
+                            <a href="{{route('add.user')}}" class="btn btn-danger btn-sm float-right">
+                                <i class="far fa-hand-point-right"> </i>Add User</a>
                         </h4>
                     </div>
                     <div class="container">
@@ -22,44 +22,50 @@
                             <table class="table table-hover table-striped table-responsive" id="example1">
                                 <thead>
                                     <tr class="text-center" >
-                                        <th style="width: 50px;">No</th>
-                                        <th style="width: 200px;">Headding name</th>
-                                        <th style="width: 150px;">Category Name</th>
-                                        <th style="width: 100px;">Status</th>
-                                        <th style="width: 200px;">ShortMsg</th>
-                                        <th style="width: 100px;">Action</th>
+                                        <th style="width: 20px;">No</th>
+                                        <th style="width: 100px;"> Name</th>
+                                        <th style="width: 150px;">Email</th>
+                                        <th style="width: 50px;">Designation</th>
+                                        <th style="width: 50px;">Number</th>
+                                        <th style="width: 50px;">Author</th>
+                                        <th style="width: 50px;">Image</th>
+                                        <th style="width: 150px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php($i=1)
-                                    @foreach($abouts as $about)
+                                    @foreach($users as $user)
                                         <tr class="text-center">
-                                            <td>{{$i++}}</td>
-                                            <td>{{$about->title}}</td>
-                                            <td>{{$about->category_name}}</td>
-                                            <td>{{$about->status == 1 ? 'Active':'Inactive'}}</td>
-                                            <td>{{$about->short_msg}}</td>
+                                            <td>{{ $i++}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->designation}}</td>
+                                            <td>{{$user->phone_number}}</td>
+                                            <td>{{$user->auth_type}}</td>
+                                            <td>
+                                                <img src="{!! asset($user->image) !!}" width='100px'; height="50px" alt="not showing">
+                                            </td>
                                             <td class="table-action">
-                                                @if($about->status == 1)
+                                                {{-- @if($about->status == 1) --}}
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href="{{ route('inactive.about', ['id'=>$about->id]) }}"
+                                                    href=""
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
-                                                @else
+                                                {{-- @else --}}
                                                     <a class="btn btn-warning btn-sm"
-                                                    href="{{ route('active.about', ['id'=>$about->id]) }}"
+                                                    href=""
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>
-                                                @endif
+                                                {{-- @endif --}}
                                                 <a class="btn  btn-sm"
-                                                href="{{ route('edit.about', ['id'=>$about->id]) }}"
+                                                href=""
                                                 title="Edit">
                                                     <em class="fas fa-edit"></em>
                                                 </a>
                                                 <a class="btn  btn-sm"
-                                                href="{{ route('delete.about', ['id'=>$about->id]) }}"
+                                                href=""
                                                 onclick="return confirm('Are you sure to delete this ??')"
                                                 title="Delete">
                                                     <em class="fas fa-trash-alt"></em>

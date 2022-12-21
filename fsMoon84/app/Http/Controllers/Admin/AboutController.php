@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\About;
+use DB;
 
 class AboutController extends Controller{
     public function index(){
@@ -43,7 +44,12 @@ class AboutController extends Controller{
         return redirect('/about')->with('message', 'About Save Successfully ');;
     }
     public function manageAbout(){
-        $abouts = About::all();
+        // $abouts = About::all();
+        $abouts = DB::table('abouts')
+                        ->join('categories', 'abouts.category_id','=','categories.id')
+                        ->select('abouts.*','categories.category_name')
+                        ->get();
+                        // return $abouts;
         return view('admin.about.manageAbout',['abouts'=>$abouts]);
     }
     public function inactiveAbout($id){

@@ -35,7 +35,7 @@
                                 <div class="form-group row">
                                     <label for="status" class="col-sm-4 col-form-label text-right">status</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control @error('status') is-invalid @enderror" name="status">
+                                        <select class="form-select @error('status') is-invalid @enderror" name="status">
                                             <option  disabled selected >Select Option</option>
                                             <option value="1">Active</option>
                                             <option value="0">Inactive</option>

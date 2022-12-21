@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    About
+    Service
 @endsection
 @section('body')
 <div class="content-wrapper ">
@@ -13,9 +13,9 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-danger text-bold"> Add About
+                        <h4 class="text-danger text-bold"> Add Service
                             <a href="{{route('manage.about')}}" class="btn btn-danger btn-sm float-right">
-                                <i class="far fa-hand-point-right"> </i>Manage About</a>
+                                <i class="far fa-hand-point-right"> </i>Manage Service</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -25,7 +25,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
                                         <div class="form-group row">
-                                            <label for="title" class="col-sm-4 col-form-label text-right">Head Title </label>
+                                            <label for="title" class="col-sm-4 col-form-label text-right">Headding Name</label>
                                             <div class="col-sm-8">
                                                 <input type="text" value="{{ old('title') }}" name="title" class="form-control @error('title') is-invalid @enderror""  placeholder="Enter About Name" >
                                                 @error('title')
@@ -42,9 +42,7 @@
                                             <div class="col-sm-8">
                                                 <select name="category_id" value="{{ old('category_id') }}" class="form-select @error('category_id') is-invalid @enderror" >
                                                     <option disabled selected>Select Option</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{!! $category->id !!}"> {!! $category->category_name !!} </option>
-                                                    @endforeach
+                                                        <option value="">  </option>
                                                 </select>
                                                 @error('category_id')
                                                     <span class="invalid-feedback" role="alert">
@@ -69,7 +67,7 @@
                                 <div class="form-group row">
                                     <label for="status" class="col-sm-4 col-form-label text-right">Status</label>
                                     <div class="col-sm-8">
-                                        <select value="{{ old('status') }}" class="form-control  @error('status') is-invalid @enderror" name="status">
+                                        <select value="{{ old('status') }}" class="form-select @error('status') is-invalid @enderror" name="status">
                                             <option  disabled selected >Select Option</option>
                                             <option value="1">Active</option>
                                             <option value="0">Inactive</option>

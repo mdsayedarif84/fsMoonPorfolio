@@ -72,7 +72,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Pages
+                About
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">click</span>
               </p>
@@ -85,32 +85,87 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{route('manage.about')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
+                  <p>Manage About</p>
                 </a>
               </li>
               
             </ul>
           </li>
-          
-          <li class="nav-header">EXAMPLES</li>
-          
-          
+                    
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Extras
+                Pages
                 <i class="fas fa-angle-left right"></i>
+                <span class="text-yellow badge badge-info right">Click For More</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-copy"></i>
                   <p>
-                    Login & Register v1
+                     About
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('about')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add About</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                     Service
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('add.service')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add Service</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                     User
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('add.user')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add User</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Add Service
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -119,24 +174,6 @@
                     <a href="../examples/login.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Login v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/register.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Register v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/forgot-password.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Forgot Password v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/recover-password.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Recover Password v1</p>
                     </a>
                   </li>
                 </ul>
