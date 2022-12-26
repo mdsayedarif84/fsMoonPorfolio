@@ -8,6 +8,7 @@ use Intervention\Image\Facades\Image;
 use App\Models\User;
 use App\Models\Profile;
 use DB;
+use Auth;
 
 class UserController extends Controller{
     public function index(){
@@ -19,7 +20,7 @@ class UserController extends Controller{
         $imageName = $request->name . '.' . $filetype;
         $directory              =   'uploads/';
         $imageUrl               =    $directory.$imageName;
-        Image::make($slideImage)->resize(800, 972)->save($imageUrl);
+        Image::make($slideImage)->resize(972, 800)->save($imageUrl);
         return $imageUrl;
     }
     public function userSaveInfo($request,$imageUrl){
@@ -49,12 +50,23 @@ class UserController extends Controller{
         return redirect('/user')->with('message', 'User Info Save Successfully');
     }
     public function manageUserInfo(){
-        $users  =   DB::table('profiles')
+        $userId     =  Auth::user()->id;
+        $auth_type  =  Auth::user()->auth_type;
+        if($auth_type=="user"){
+            $users =DB::table('profiles')
+                    ->join('users','profiles.user_id', '=', 'users.id')
+                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.status','profiles.image')
+                    ->where('profiles.user_id',$userId)
+                    ->get();
+                return view('admin.user.manage-user',['users'=>$users]);
+        }else{
+            $users  =DB::table('profiles')
                     ->join('users','profiles.user_id', '=', 'users.id')
                     ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.status','profiles.image')
                     ->get(); 
-                    // return $users;
-        return view('admin.user.manage-user',['users'=>$users]);
+                        // return $users;
+            return view('admin.user.manage-user',['users'=>$users]);
+        }
     }
     public function inactiveUser($id){
 

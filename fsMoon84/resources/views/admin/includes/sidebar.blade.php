@@ -1,5 +1,7 @@
 @php
     $userId =  Auth::user()->id;
+    $auth_type =  Auth::user()->auth_type;
+
     // dd($userId);
     $profileUserId =DB::table('profiles')
                 ->join('users','profiles.user_id', '=', 'users.id')
@@ -40,8 +42,6 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{route('home')}}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -52,82 +52,81 @@
             </a>
           
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Category
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">click</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('category')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('manage.category')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Category</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Slider
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">click</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('add.slider')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Slider</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('manage.category')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Slider</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                About
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">click</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('about')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add About</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('manage.about')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage About</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-                    
+          @if( $auth_type!='user' )
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Category
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">click</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('category')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Category</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('manage.category')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Manage Category</p>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Slider
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">click</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('add.slider')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Slider</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('manage.category')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Manage Slider</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  About
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">click</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('about')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add About</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('manage.about')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Manage About</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          @endif
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon far fa-plus-square"></i>
@@ -137,83 +136,86 @@
                 <span class="text-yellow badge badge-info right">Click For More</span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                     About
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('about')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add About</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                     Service
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('add.service')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add Service</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                     User
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('add.user')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add User</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                    Add Service
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../examples/login.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Login v1</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              
-            </ul>
+            @if($auth_type!='user')
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                      About
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route('about')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add About</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                      Service
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route('add.service')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Service</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                      Add Service
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="../examples/login.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Login v1</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                
+              </ul>
+            @elseif( $auth_type=='user' || $auth_type=='admin' )
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                      User
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route('add.user')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add User</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            @endif
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
