@@ -8,16 +8,8 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Middleware\AdminAuthLoginCheck;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Admin\SliderController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,6 +45,12 @@ Route::middleware(['login.check'])->group(function(){
     Route::get('/user',[UserController::class, 'index'])->name('add.user');
     Route::post('/save/user',[UserController::class,'sotre'])->name('new.user');
     Route::get('/manage/user',[UserController::class,'manageUserInfo'])->name('manage.user');
+    Route::get('/inactive/{id}',[UserController::class,'inactiveUser'])->name('inactive.user');
+    Route::get('/active/{id}',[UserController::class,'activeUser'])->name('active.user');
+
+
+    Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
+
 
 });
 

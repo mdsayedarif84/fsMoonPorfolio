@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('designation',50);
             $table->string('phone_number',20);
             $table->string('image');
+            $table->tinyInteger('status');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->foreign('user_id')

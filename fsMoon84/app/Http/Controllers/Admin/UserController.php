@@ -38,8 +38,9 @@ class UserController extends Controller{
         $profile->image = $imageUrl;
         $profile->designation = $request->designation;
         $profile->phone_number = $request->phone_number;
+        $profile->status = $request->status;
         $profile->save();
-        // $user_id=session::put($id);
+        session::put('userId',$id);
     }
 
     public function sotre(Request $request){
@@ -50,9 +51,38 @@ class UserController extends Controller{
     public function manageUserInfo(){
         $users  =   DB::table('profiles')
                     ->join('users','profiles.user_id', '=', 'users.id')
-                    ->select('users.name','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.image')
+                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.status','profiles.image')
                     ->get(); 
                     // return $users;
         return view('admin.user.manage-user',['users'=>$users]);
+    }
+    public function inactiveUser($id){
+
+        // $profile = Profile::find($id);
+        // // return $profile;
+        // $profile->status = 0;
+        // $profile->save();
+        $users  =   DB::table('profiles')
+                    ->join('users','profiles.user_id', '=', 'users.id')
+                    ->where('profiles.user_id',$id)
+                    ->update(['status'=>0]);
+                    // return $users;
+        // $users->status  = 0;
+        
+                            // return $users;
+
+        // $users->save();
+        return redirect('manage/user')->with('message', 'User info inactive successfully');
+    }
+    public function activeUser($id){
+        // $profile = Profile::find($id);
+        // // return $profile;
+        // $profile->status = 1;
+        // $profile->save();
+        $users  =   DB::table('profiles')
+                    ->join('users','profiles.user_id', '=', 'users.id')
+                    ->where('profiles.user_id',$id)
+                    ->update(['status'=>1]);
+        return redirect('manage/user')->with('message', 'User info Active successfully');
     }
 }

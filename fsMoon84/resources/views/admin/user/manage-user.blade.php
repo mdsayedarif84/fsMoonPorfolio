@@ -46,19 +46,19 @@
                                                 <img src="{!! asset($user->image) !!}" width='100px'; height="50px" alt="not showing">
                                             </td>
                                             <td class="table-action">
-                                                {{-- @if($about->status == 1) --}}
+                                                @if($user->status == 1)
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href=""
+                                                    href="{{ route('inactive.user', ['id'=>$user->id]) }}"
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
-                                                {{-- @else --}}
+                                                @else
                                                     <a class="btn btn-warning btn-sm"
-                                                    href=""
+                                                    href="{{ route('active.user', ['id'=>$user->id]) }}"
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>
-                                                {{-- @endif --}}
+                                                @endif
                                                 <a class="btn  btn-sm"
                                                 href=""
                                                 title="Edit">

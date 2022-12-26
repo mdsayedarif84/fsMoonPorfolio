@@ -58,6 +58,22 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="status" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+                                <div class="col-md-8">
+                                    <select name="status" id="status" class="form-select @error('author_name') is-invalid @enderror" >
+                                        <option disabled selected id="choseOption" required> Select Option</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
                                 <div class="col-md-8">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">

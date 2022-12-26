@@ -1,8 +1,18 @@
+@php
+
+    $profileUserId =DB::table('profiles')
+                ->join('users','profiles.user_id', '=', 'users.id')
+                ->select('users.name','users.id','profiles.user_id','profiles.image','profiles.designation')
+                ->orderBy('id','DESC')
+                ->first();
+                //   dd($profileUserId);
+@endphp 
+
 <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
     <div class="text-center">
-        <div class="author-img" style="background-image: url('{{asset('frontend/images/about.jpg')}}');"></div>
-        <h1 id="colorlib-logo"><a href="index.html">MD Sayed Arif</a></h1>
-        <span class="position"><a href="#">Laravel-9 Developper</a> in Nokhali</span>
+        <div class="author-img" style="background-image: url('{{asset($profileUserId->image)}}');"></div>
+        <h1 id="colorlib-logo"><a href="index.html">{{$profileUserId->name}}</a></h1>
+        <span class="position"><a href="#">{{$profileUserId->designation}}</a> in Nokhali</span>
     </div>
     <nav id="colorlib-main-menu" role="navigation" class="navbar">
         <div id="navbar" class="collapse">
