@@ -1,6 +1,6 @@
 @php
-    $userId =  Auth::user()->id;
-    $auth_type =  Auth::user()->auth_type;
+    $userId     =  Auth::user()->id;
+    $auth_type  =  Auth::user()->auth_type;
 
     // dd($userId);
     $profileUserId =DB::table('profiles')
@@ -21,7 +21,8 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset($profileUserId->image)}}"class="img-circle elevation-2"  alt="User Image">
+          <img src="{{asset($profileUserId->image)}}"class="img-circle elevation-10"  alt="User Image">
+
         </div>
         <div class="info">
           <a href="#" class="d-block">{{$profileUserId->name}}</a>
