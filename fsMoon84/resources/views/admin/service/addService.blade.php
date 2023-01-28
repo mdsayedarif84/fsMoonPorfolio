@@ -25,12 +25,12 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
                                         <div class="form-group row">
-                                            <label for="title" class="col-sm-4 col-form-label text-right">Headding Name</label>
+                                            <label for="q_heading" class="col-sm-4 col-form-label text-right"> Question Heading</label>
                                             <div class="col-sm-8">
-                                                <input type="text" value="{{ old('title') }}" name="title" class="form-control @error('title') is-invalid @enderror""  placeholder="Enter About Name" >
-                                                @error('title')
+                                                <input type="text" value="{{ old('q_heading') }}" name="q_heading" class="form-control @error('q_heading') is-invalid @enderror""  placeholder="Question write" >
+                                                @error('q_heading')
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->has('title') ? $errors->first('title') : ' '  }}</strong>
+                                                        <strong>{{ $errors->has('q_heading') ? $errors->first('q_heading') : ' '  }}</strong>
                                                     </span>         
                                                 @enderror 
                                             </div>
@@ -42,7 +42,9 @@
                                             <div class="col-sm-8">
                                                 <select name="category_id" value="{{ old('category_id') }}" class="form-select @error('category_id') is-invalid @enderror" >
                                                     <option disabled selected>Select Option</option>
-                                                        <option value="">  </option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{!! $category->id !!}"> {!! $category->category_name !!} </option>
+                                                    @endforeach
                                                 </select>
                                                 @error('category_id')
                                                     <span class="invalid-feedback" role="alert">
@@ -54,12 +56,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="about_us" class="col-sm-2 text-right">About Us</label>
+                                    <label for="heading_name" class="col-sm-2 text-right">Heading Name</label>
                                     <div class="col-sm-10">
-                                        <textarea type="text" value="{{ old('about_us') }}" name="about_us" class="form-control @error('about_us') is-invalid @enderror"></textarea>
-                                        @error('about_us')
+                                        <input type="text" value="{{ old('heading_name') }}" name="heading_name" class="form-control @error('heading_name') is-invalid @enderror">
+                                        @error('heading_name')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->has('about_us') ? $errors->first('about_us') : ' '  }}</strong>
+                                                <strong>{{ $errors->has('heading_name') ? $errors->first('heading_name') : ' '  }}</strong>
                                             </span>         
                                         @enderror 
                                     </div>
@@ -67,7 +69,7 @@
                                 <div class="form-group row">
                                     <label for="status" class="col-sm-4 col-form-label text-right">Status</label>
                                     <div class="col-sm-8">
-                                        <select value="{{ old('status') }}" class="form-select @error('status') is-invalid @enderror" name="status">
+                                        <select name="status" value="{{ old('status') }}" class="form-select @error('status') is-invalid @enderror">
                                             <option  disabled selected >Select Option</option>
                                             <option value="1">Active</option>
                                             <option value="0">Inactive</option>
@@ -80,7 +82,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label value="{{ old('short_msg') }}" for="short_msg" class="col-sm-2  text-right">Short Message Us</label>
+                                    <label value="{{ old('short_msg') }}" for="short_msg" class="col-sm-2  text-right"> Message</label>
                                     <div class="col-sm-10">
                                         <textarea type="text" name="short_msg" class="form-control @error('short_msg') is-invalid @enderror" ></textarea>
                                         @error('short_msg')

@@ -33,6 +33,7 @@ class CategoryController extends Controller{
     }
     public function manageCategoryInfo(){
         $categories = Category::all();
+        // return $categories;
         return view('admin.category.manage-category', ['categories' => $categories]);
     }
     public function inactiveCategory($id){
