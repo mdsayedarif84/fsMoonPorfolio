@@ -19,7 +19,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('new.about')}}" method="POST" class="form-horizontal" >
+                        <form action="{{route('new.service')}}" method="POST" class="form-horizontal" >
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">

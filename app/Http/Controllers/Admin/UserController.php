@@ -38,6 +38,7 @@ class UserController extends Controller{
         
         $profile->image = $imageUrl;
         $profile->designation = $request->designation;
+        $profile->district = $request->district;
         $profile->phone_number = $request->phone_number;
         $profile->status = $request->status;
         $profile->save();
@@ -55,14 +56,14 @@ class UserController extends Controller{
         if($auth_type=="user"){
             $users =DB::table('profiles')
                     ->join('users','profiles.user_id', '=', 'users.id')
-                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.status','profiles.image')
+                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.district','profiles.phone_number','profiles.status','profiles.image')
                     ->where('profiles.user_id',$userId)
                     ->get();
                 return view('admin.user.manage-user',['users'=>$users]);
         }else{
             $users  =DB::table('profiles')
                     ->join('users','profiles.user_id', '=', 'users.id')
-                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.phone_number','profiles.status','profiles.image')
+                    ->select('users.name','users.id','users.email','users.auth_type','profiles.designation','profiles.district','profiles.phone_number','profiles.status','profiles.image')
                     ->get(); 
                         // return $users;
             return view('admin.user.manage-user',['users'=>$users]);
@@ -80,9 +81,7 @@ class UserController extends Controller{
                     ->update(['status'=>0]);
                     // return $users;
         // $users->status  = 0;
-        
-                            // return $users;
-
+        // return $users;
         // $users->save();
         return redirect('manage/user')->with('message', 'User info inactive successfully');
     }

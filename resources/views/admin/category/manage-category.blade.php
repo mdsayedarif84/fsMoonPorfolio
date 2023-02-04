@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-danger text-bold">  Manage Category
-                            <a href="{{route('about')}}" class="btn btn-danger btn-sm float-right">
+                            <a href="{{route('category')}}" class="btn btn-danger btn-sm float-right">
                                 <i class="far fa-hand-point-right"> </i>Add Category</a>
                         </h4>
                     </div>
@@ -42,13 +42,13 @@
                                             <td class="table-action">
                                                 @if($category->status == 1)
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href="{{ route('inactive.category', ['id'=>$category->id]) }}"
+                                                    href="{{ route('unpublished.cat',['id'=>$category->id]) }}"
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
                                                 @else
                                                     <a class="btn btn-warning btn-sm"
-                                                    href="{{ route('active.category', ['id'=>$category->id]) }}"
+                                                    href="{{ route('published.cat',['id'=>$category->id]) }}"
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name',50);
             $table->integer('user_id')->unsigned();
             $table->string('designation',50);
+            $table->string('district',255);
             $table->string('phone_number',20);
             $table->string('image');
             $table->tinyInteger('status');
