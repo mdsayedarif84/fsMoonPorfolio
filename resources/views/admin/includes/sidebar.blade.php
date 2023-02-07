@@ -26,6 +26,8 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">{{$profileImgByUserId->name}}</a>
+          <br>
+          <p class="d-block text-danger text-strong">{{$profileImgByUserId->designation}}</p>
         </div>
       </div>
 

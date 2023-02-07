@@ -14,6 +14,25 @@ class UserController extends Controller{
     public function index(){
         return view('admin.user.add-user');
     }
+    protected function userValidation($request){
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'author_name' => 'required',
+            'status' => 'required',
+            'designation' => 'required',
+            'district' => 'required',
+            'password' => 'required|min:6|confirmed',
+            'image' => 'required',
+            'phone_number' => 'required|max:11',
+            ],
+            [
+                'name.required' => 'Your name must be required!',
+                'author_name.required' => 'Please select this author name!',
+                'status.required' => 'Please select the status!',
+                'password.confirmed' => 'Password is not matching'
+            ]
+        );
+    }
     protected function userImageUpload($request ){
         $slideImage           =   $request->file('image');
         $filetype = $slideImage->getClientOriginalExtension();
@@ -24,7 +43,6 @@ class UserController extends Controller{
         return $imageUrl;
     }
     public function userSaveInfo($request,$imageUrl){
-        
         $user = new User();
         $user->email = $request->email;
         $user->name = $request->name;
@@ -46,6 +64,7 @@ class UserController extends Controller{
     }
 
     public function sotre(Request $request){
+        $this->userValidation($request);
         $imageUrl   =   $this->userImageUpload($request);
         $this->userSaveInfo($request,$imageUrl);
         return redirect('/user')->with('message', 'User Info Save Successfully');
@@ -95,5 +114,13 @@ class UserController extends Controller{
                     ->where('profiles.user_id',$id)
                     ->update(['status'=>1]);
         return redirect('manage/user')->with('message', 'User info Active successfully');
+    }
+    public function emailCheck($email){
+        $user=   User::where('email',$email)->first();
+        if ($user){
+            echo 'This Email Already exist.Try new email !';
+        }else{
+            echo 'This Email Available for you !';
+        }
     }
 }

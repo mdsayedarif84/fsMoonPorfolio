@@ -48,8 +48,10 @@ Route::middleware(['login.check'])->group(function(){
     Route::get('/manage/user',[UserController::class,'manageUserInfo'])->name('manage.user');
     Route::get('/inactive/{id}',[UserController::class,'inactiveUser'])->name('inactive.user');
     Route::get('/active/{id}',[UserController::class,'activeUser'])->name('active.user');
+    Route::get('/email-check/{email}',[UserController::class,'emailCheck'])->name('email-check');
 
 
+    
     Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
 
 

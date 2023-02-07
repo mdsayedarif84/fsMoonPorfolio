@@ -13,7 +13,9 @@
     <div class="text-center">
         <div class="author-img" style="background-image: url('{{asset($value->image)}}');"></div>
         <h1 id="colorlib-logo"><a href="index.html">{{$value->name}}</a></h1>
-        <span class="position"><a href="#">{{$value->designation}}</a> in {{$value->district}}</span>
+        <span class="position">
+            <a href="#">{{$value->designation}}</a> in {{$value->district}}
+        </span>
     </div>
     <nav id="colorlib-main-menu" role="navigation" class="navbar">
         <div id="navbar" class="collapse">
