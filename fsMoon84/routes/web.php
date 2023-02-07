@@ -25,8 +25,8 @@ Route::middleware(['login.check'])->group(function(){
     Route::get('/category',[CategoryController::class, 'index'])->name('category');
     Route::post('/save/category',[CategoryController::class,'saveCategoryInfo'])->name('new.category');
     Route::get('/manage/category',[CategoryController::class,'manageCategoryInfo'])->name('manage.category');
-    Route::get('/inactive/{id}',[CategoryController::class,'inactiveCategory'])->name('inactive.category');
-    Route::get('/active/{id}',[CategoryController::class,'activeCategory'])->name('active.category');
+    Route::get('/unpublished{id}',[CategoryController::class,'inactiveCategory'])->name('unpublished.cat');
+    Route::get('/published/{id}',[CategoryController::class,'activeCategory'])->name('published.cat');
     Route::get('/edit/category/{id}',[CategoryController::class,'editCategory'])->name('edit.category');
     Route::post('/update/category',[CategoryController::class,'updateCategory'])->name('update.category');
     Route::get('/delete/category/{id}',[CategoryController::class,'deleteCategory'])->name('delete.category');
@@ -41,14 +41,17 @@ Route::middleware(['login.check'])->group(function(){
     Route::post('/delete/about/{id}',[AboutController::class,'deleteAbout'])->name('delete.about');
 
     Route::get('/service',[ServiceController::class, 'index'])->name('add.service');
+    Route::post('/save/service',[ServiceController::class, 'store'])->name('new.service');
 
     Route::get('/user',[UserController::class, 'index'])->name('add.user');
     Route::post('/save/user',[UserController::class,'sotre'])->name('new.user');
     Route::get('/manage/user',[UserController::class,'manageUserInfo'])->name('manage.user');
     Route::get('/inactive/{id}',[UserController::class,'inactiveUser'])->name('inactive.user');
     Route::get('/active/{id}',[UserController::class,'activeUser'])->name('active.user');
+    Route::get('/email-check/{email}',[UserController::class,'emailCheck'])->name('email-check');
 
 
+    
     Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
 
 

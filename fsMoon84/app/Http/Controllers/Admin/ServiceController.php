@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Service;
 
 
 class ServiceController extends Controller{
@@ -31,15 +32,15 @@ class ServiceController extends Controller{
             ]
         );
     }
-    public function saveAboutInfo(Request $request){
+    public function store(Request $request){
         $this->validationAbout($request);
-        $about = new About();
-        $about->title = $request->title;
+        $about = new Service();
+        $about->q_heading = $request->q_heading;
         $about->category_id = $request->category_id;
-        $about->about_us = $request->about_us;
+        $about->heading_name = $request->heading_name;
         $about->short_msg = $request->short_msg;
         $about->status = $request->status;
         $about->save();
-        return redirect('/about')->with('message', 'About Save Successfully ');;
+        return redirect('/about')->with('message', 'Service Data Save Successfully ');;
     }
 }

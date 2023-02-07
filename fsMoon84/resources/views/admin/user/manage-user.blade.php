@@ -26,6 +26,7 @@
                                         <th style="width: 100px;"> Name</th>
                                         <th style="width: 150px;">Email</th>
                                         <th style="width: 50px;">Designation</th>
+                                        <th style="width: 50px;">District</th>
                                         <th style="width: 50px;">Number</th>
                                         <th style="width: 50px;">Author</th>
                                         <th style="width: 50px;">Image</th>
@@ -40,6 +41,7 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->designation}}</td>
+                                            <td>{{$user->district}}</td>
                                             <td>{{$user->phone_number}}</td>
                                             <td>{{$user->auth_type}}</td>
                                             <td>

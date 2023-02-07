@@ -1,18 +1,21 @@
 @php
-
-    $profileUserId =DB::table('profiles')
-                ->join('users','profiles.user_id', '=', 'users.id')
-                ->select('users.name','users.id','profiles.user_id','profiles.image','profiles.designation')
-                ->orderBy('id','DESC')
-                ->first();
+    $value =  Session::get('profileImgByUserId');
+    //dd($value);
+    //$profileUserId =DB::table('profiles')
+                //->join('users','profiles.user_id', '=', 'users.id')
+                //->select('users.name','users.id','profiles.user_id','profiles.image','profiles.designation')
+                //->orderBy('id','DESC')
+                //->first();
                 //   dd($profileUserId);
 @endphp 
 
 <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
     <div class="text-center">
-        <div class="author-img" style="background-image: url('{{asset($profileUserId->image)}}');"></div>
-        <h1 id="colorlib-logo"><a href="index.html">{{$profileUserId->name}}</a></h1>
-        <span class="position"><a href="#">{{$profileUserId->designation}}</a> in Nokhali</span>
+        <div class="author-img" style="background-image: url('{{asset($value->image)}}');"></div>
+        <h1 id="colorlib-logo"><a href="index.html">{{$value->name}}</a></h1>
+        <span class="position">
+            <a href="#">{{$value->designation}}</a> in {{$value->district}}
+        </span>
     </div>
     <nav id="colorlib-main-menu" role="navigation" class="navbar">
         <div id="navbar" class="collapse">
