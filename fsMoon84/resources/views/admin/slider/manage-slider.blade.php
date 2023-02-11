@@ -48,19 +48,19 @@
                                             <td class="table-action">
                                                 @if($slider->status == 1)
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href=""
+                                                    href="{{ route('inactive.slider', ['id'=>$slider->id]) }}"
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
                                                 @else
                                                     <a class="btn btn-warning btn-sm"
-                                                    href="
+                                                    href="{{ route('active.slider', ['id'=>$slider->id]) }}"
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>
                                                 @endif
                                                 <a class="btn  btn-sm"
-                                                href=""
+                                                href="{{ route('edit.slider', ['id'=>$slider->id]) }}"
                                                 title="Edit">
                                                     <em class="fas fa-edit"></em>
                                                 </a>

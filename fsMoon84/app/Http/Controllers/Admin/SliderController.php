@@ -61,4 +61,22 @@ class SliderController extends Controller{
         $sliders    =   Slider::all();
         return view('admin.slider.manage-slider',['sliders'=>$sliders]);
     }
+    public function inactiveSlider($id){
+        $slider = Slider::find($id);
+        $slider->status = 0;
+        $slider->save();
+        return redirect('manage/slider')->with('message', 'Slider info inactive successfully');
+    }
+    public function activeSlider($id){
+        $slider = Slider::find($id);
+        $slider->status = 1;
+        $slider->save();
+        return redirect('manage/slider')->with('message', 'Slider info active successfully');
+    }
+    public function editSlider($id){
+        $slider = Slider::find($id);
+        return view('admin.slider.edit-slider', ['slider' => $slider]);
+
+
+    }
 }

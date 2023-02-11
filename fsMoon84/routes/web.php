@@ -55,6 +55,11 @@ Route::middleware(['login.check'])->group(function(){
     Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
     Route::post('/save/slider',[SliderController::class, 'saveSlider'])->name('save.slider');
     Route::get('/manage/slider',[SliderController::class, 'manageSlider'])->name('manage.slider');
+    Route::get('/inactive/{id}',[SliderController::class,'inactiveSlider'])->name('inactive.slider');
+    Route::get('/active/{id}',[SliderController::class,'activeSlider'])->name('active.slider');
+
+    Route::get('/edit/slider/{id}',[SliderController::class,'editSlider'])->name('edit.slider');
+
 
 
 });
