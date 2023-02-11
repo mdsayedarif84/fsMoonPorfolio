@@ -16,14 +16,14 @@ class UserController extends Controller{
     }
     protected function userValidation($request){
         $this->validate($request, [
-            'name' => 'required|min:3|max:50',
-            'author_name' => 'required',
-            'status' => 'required',
-            'designation' => 'required',
-            'district' => 'required',
-            'password' => 'required|min:6|confirmed',
-            'image' => 'required',
-            'phone_number' => 'required|max:11',
+            'name'          => 'required|min:3|max:50',
+            'author_name'   => 'required',
+            'status'        => 'required',
+            'designation'   => 'required',
+            'district'      => 'required',
+            'password'      => 'required|min:6|confirmed',
+            'image'         => 'required',
+            'phone_number'  => 'required|max:11',
             ],
             [
                 'name.required' => 'Your name must be required!',
@@ -34,40 +34,40 @@ class UserController extends Controller{
         );
     }
     protected function userImageUpload($request ){
-        $slideImage           =   $request->file('image');
-        $filetype = $slideImage->getClientOriginalExtension();
-        $imageName = $request->name . '.' . $filetype;
-        $directory              =   'uploads/';
-        $imageUrl               =    $directory.$imageName;
+        $slideImage     =   $request->file('image');
+        $filetype       =   $slideImage->getClientOriginalExtension();
+        $imageName      =   $request->name.'.'.$filetype;
+        $directory      =   'uploads/';
+        $imageUrl       =   $directory.$imageName;
         Image::make($slideImage)->resize(972, 800)->save($imageUrl);
         return $imageUrl;
     }
     public function userSaveInfo($request,$imageUrl){
-        $user = new User();
-        $user->email = $request->email;
-        $user->name = $request->name;
-        $user->password = bcrypt($request->password);
-        $user->auth_type = $request->author_name;
+        $user               = new User();
+        $user->email        = $request->email;
+        $user->name         = $request->name;
+        $user->password     = bcrypt($request->password);
+        $user->auth_type    = $request->author_name;
         $user->save();
 
-        $profile = new Profile();
-        $id = User::select('id')->where('email', $request->email)->first();
+        $profile            = new Profile();
+        $id                 = User::select('id')->where('email', $request->email)->first();
         $profile->user_id = $id->id;
         
-        $profile->image = $imageUrl;
-        $profile->designation = $request->designation;
-        $profile->district = $request->district;
-        $profile->phone_number = $request->phone_number;
-        $profile->status = $request->status;
+        $profile->image         = $imageUrl;
+        $profile->designation   = $request->designation;
+        $profile->district      = $request->district;
+        $profile->phone_number  = $request->phone_number;
+        $profile->status        = $request->status;
         $profile->save();
         session::put('userId',$id);
     }
 
     public function sotre(Request $request){
         $this->userValidation($request);
-        $imageUrl   =   $this->userImageUpload($request);
+        $imageUrl               =   $this->userImageUpload($request);
         $this->userSaveInfo($request,$imageUrl);
-        return redirect('/user')->with('message', 'User Info Save Successfully');
+        return redirect('/user')->with('message','User Info Save Successfully');
     }
     public function manageUserInfo(){
         $userId     =  Auth::user()->id;

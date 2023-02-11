@@ -53,6 +53,8 @@ Route::middleware(['login.check'])->group(function(){
 
     
     Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
+    Route::post('/save/slider',[SliderController::class, 'saveSlider'])->name('save.slider');
+    Route::get('/manage/slider',[SliderController::class, 'manageSlider'])->name('manage.slider');
 
 
 });
