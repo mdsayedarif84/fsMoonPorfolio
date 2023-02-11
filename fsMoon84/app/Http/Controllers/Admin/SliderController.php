@@ -24,7 +24,7 @@ class SliderController extends Controller{
                 'heading.required' => 'Heading must be needed!',
                 'link.required' => 'Please set the link!',
                 'status.required' => 'Please select the status!',
-                'description.required' => 'Please write something'
+                'description.required' => 'Please write something about this.'
             ]
         );
     }

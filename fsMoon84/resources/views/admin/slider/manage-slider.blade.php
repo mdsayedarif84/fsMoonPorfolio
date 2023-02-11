@@ -24,9 +24,9 @@
                                     <tr class="text-center" >
                                         <th style="width: 20px;">SL No</th>
                                         <th style="width: 100px;"> Heading</th>
-                                        <th style="width: 150px;">Link</th>
+                                        <th style="width:50px;">Link</th>
                                         <th style="width: 50px;">Link Name</th>
-                                        <th style="width: 100px;">Description</th>
+                                        <th style="width: 200px;">Description</th>
                                         <th style="width: 50px;">Status</th>
                                         <th style="width: 50px;">Image</th>
                                         <th style="width: 150px;">Action</th>
