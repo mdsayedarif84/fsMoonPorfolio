@@ -65,7 +65,7 @@
                                                     <em class="fas fa-edit"></em>
                                                 </a>
                                                 <a class="btn  btn-sm"
-                                                href=""
+                                                href="{{ route('delete.slider', ['id'=>$slider->id]) }}"
                                                 onclick="return confirm('Are you sure to delete this ??')"
                                                 title="Delete">
                                                     <em class="fas fa-trash-alt"></em>

@@ -73,10 +73,37 @@ class SliderController extends Controller{
         $slider->save();
         return redirect('manage/slider')->with('message', 'Slider info active successfully');
     }
+    public function deleteSlider($id){
+        $slider = Slider::find($id);
+        return $slider;
+        $slider->delete();
+        return redirect('manage/slider')->with('message', 'Slider info active successfully');
+    }
     public function editSlider($id){
         $slider = Slider::find($id);
         return view('admin.slider.edit-slider', ['slider' => $slider]);
-
-
+    }
+    public function sliderEditInfoUpdate($slider,$request,$imageUrl=null){
+        $slider->heading      =   $request->heading;
+        $slider->description  =   $request->description;
+        $slider->link         =   $request->link;
+        $slider->link_name    =   $request->link_name;
+        if($imageUrl){
+            $slider->image    =   $imageUrl;
+        }
+        $slider->status       =   $request->status;
+        $slider->save();
+    }
+    public function sliderUpdateInfo(Request $request){
+        $sliderImage   =   $request->file('image');
+        $slider         =   Slider::find($request->slider_id);
+        if($sliderImage){
+            unlink($slider->image);
+            $imageUrl   =   $this->sliderImageUlolad($request);
+            $this->sliderEditInfoUpdate($slider,$request,$imageUrl);
+        }else{
+            $this->sliderEditInfoUpdate($slider,$request);
+        }
+        return redirect('/slider')->with('message','Slider Update Successfully');
     }
 }

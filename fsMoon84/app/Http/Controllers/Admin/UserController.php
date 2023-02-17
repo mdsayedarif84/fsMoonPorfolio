@@ -99,16 +99,9 @@ class UserController extends Controller{
                     ->where('profiles.user_id',$id)
                     ->update(['status'=>0]);
                     // return $users;
-        // $users->status  = 0;
-        // return $users;
-        // $users->save();
         return redirect('manage/user')->with('message', 'User info inactive successfully');
     }
     public function activeUser($id){
-        // $profile = Profile::find($id);
-        // // return $profile;
-        // $profile->status = 1;
-        // $profile->save();
         $users  =   DB::table('profiles')
                     ->join('users','profiles.user_id', '=', 'users.id')
                     ->where('profiles.user_id',$id)

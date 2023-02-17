@@ -19,7 +19,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('save.slider')}}" method="POST" id="editSliderForm" enctype="multipart/form-data">
+                        <form action="{{route('update.slider')}}" method="POST" id="editSliderForm" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <div class="col-sm-6">
@@ -71,13 +71,18 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <div class="form-group row"></div>
+                                    <div class="form-group row">
+                                    <div class="col-sm-8">
+                                            <input name="slider_id" type="hidden" value="{{ $slider->id}}"  class="form-control @error('slider_id') is-invalid @enderror"   autocomplete="slider"/>
+                                            <span class="text-danger">{{ $errors->has('slider_id') ? $errors->first('slider_id') : ' ' }}</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                     <div class="form-group row">
                                     <label for="image" class="col-sm-4 col-md-4 text-success font-weight-bolder text-md-end">{{ __('Image') }}</label>
                                         <div class="col-sm-8">
-                                            <input name="image" type="file" value="{{ old('image') }}"  class="form-control @error('image') is-invalid @enderror"   autocomplete="image"/>
+                                            <input name="image" type="file" value="{{ old('image') }}"  class="form-control @error('image') is-invalid @enderror">
                                             <span class="text-danger">{{ $errors->has('image') ? $errors->first('image') : ' ' }}</span>
                                         </div>
                                     </div>
