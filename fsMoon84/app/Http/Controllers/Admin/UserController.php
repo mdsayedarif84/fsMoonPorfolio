@@ -114,6 +114,7 @@ class UserController extends Controller{
                     // return $user;
         return view('admin.user.edit-user',['user'=>$user]);
     }
+    //this function not work
     public function userUpdateBasicInfo(Request $request, $imageUrl=null){
         $user = User::where('email', $request->email)->first();
         // return $user;

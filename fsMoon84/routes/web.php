@@ -52,7 +52,7 @@ Route::middleware(['login.check'])->group(function(){
     Route::get('/unpublished/{id}',[UserController::class,'activeUser'])->name('unpublished.user');
     Route::get('/edit/user/{id}',[UserController::class,'editUser'])->name('edit.user');
     Route::post('/update/user',[UserController::class,'userUpdateBasicInfo'])->name('update.user');
-    //Emailcheck
+    //Emailcheck for user
     Route::get('/email-check/{email}',[UserController::class,'emailCheck'])->name('email-check');
     //Slider
     Route::get('/slider',[SliderController::class, 'index'])->name('add.slider');
