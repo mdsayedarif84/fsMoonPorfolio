@@ -55,7 +55,7 @@
             </a>
           
           </li>
-          @if($auth_type=='admin')
+          
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
@@ -127,7 +127,7 @@
                 </li>
               </ul>
             </li>
-          @elseif($auth_type=='admin'|| $auth_type=='user')
+          
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon far fa-plus-square"></i>
@@ -136,6 +136,32 @@
                   <span class="text-yellow badge badge-info right">Click For More</span>
                 </p>
               </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-copy"></i>
+                      <p>User
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{route('add.user')}}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Add User</p>
+                        </a>
+                      </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{route('manage.user')}}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Manage User</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -172,34 +198,9 @@
                     </ul>
                   </li>
                 </ul>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon fas fa-copy"></i>
-                      <p>User
-                        <i class="fas fa-angle-left right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="{{route('add.user')}}" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Add User</p>
-                        </a>
-                      </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="{{route('manage.user')}}" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Manage User</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                
             </li>
-          @endif
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-search"></i>

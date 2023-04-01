@@ -1,8 +1,20 @@
+
 @extends('admin.master')
 @section('title')
     User
 @endsection
 @section('body')
+<style>
+    .showPassword {
+        position: relative;
+    }
+    .showPassword i{
+        position: absolute;
+        margin-left: 600px;
+        bottom: 12px;
+        cursor: pointer;
+    }
+</style>
 <div class="content-wrapper">
     <div class="container">
         <div class="card">
@@ -76,8 +88,9 @@
                             
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-                                <div class="col-md-8">
+                                <div class="col-md-8 showPassword">
                                     <input id="password" name="password" type="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" >
+                                    <i class="fas fa-eye-slash text-danger " id="togglePassword"></i>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -166,6 +179,15 @@
             return true;
     });
 </script> -->
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        $("#togglePassword").toggleClass("fa-eye");
+    });
+</script>
 <script>
     var email           =   document.getElementById('email');
     email.onblur        =   function (){
