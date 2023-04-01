@@ -91,6 +91,7 @@
                                     <div class="form-group row">
                                         <img src="{{asset($slider->image)}}" width='100px'; height="100px" alt="not showing">
                                     </div>
+                                    
                                 </div>
                             </div>
                             <hr>
