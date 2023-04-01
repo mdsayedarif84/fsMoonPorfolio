@@ -50,19 +50,19 @@
                                             <td class="table-action">
                                                 @if($user->status == 1)
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href="{{ route('inactive.user', ['id'=>$user->id]) }}"
+                                                    href="{{ route('published.user',['id'=>$user->id]) }}"
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
                                                 @else
                                                     <a class="btn btn-warning btn-sm"
-                                                    href="{{ route('active.user', ['id'=>$user->id]) }}"
+                                                    href="{{ route('unpublished.user', ['id'=>$user->id]) }}"
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>
                                                 @endif
                                                 <a class="btn  btn-sm"
-                                                href=""
+                                                href="{{ route('edit.user',['id'=>$user->id]) }}"
                                                 title="Edit">
                                                     <em class="fas fa-edit"></em>
                                                 </a>

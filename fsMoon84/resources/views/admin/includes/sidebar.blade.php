@@ -55,7 +55,7 @@
             </a>
           
           </li>
-          @if($auth_type=='admin')
+          
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
@@ -127,7 +127,7 @@
                 </li>
               </ul>
             </li>
-          @elseif($auth_type=='admin'||$auth_type=='user')
+          
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon far fa-plus-square"></i>
@@ -200,7 +200,7 @@
                 </ul>
                 
             </li>
-          @endif
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
