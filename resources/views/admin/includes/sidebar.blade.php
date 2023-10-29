@@ -127,7 +127,6 @@
                 </li>
               </ul>
             </li>
-          
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon far fa-plus-square"></i>
@@ -182,17 +181,25 @@
                 </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                       <i class="nav-icon fas fa-copy"></i>
-                      <p>Test
+                      <p>Education
                         <i class="fas fa-angle-left right"></i>
                       </p>
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="../examples/login.html" class="nav-link">
+                        <a href="{{route('add.education')}}" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
-                          <p>Login v1</p>
+                          <p>Add Education</p>
+                        </a>
+                      </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{route('add.education')}}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Manage Education</p>
                         </a>
                       </li>
                     </ul>

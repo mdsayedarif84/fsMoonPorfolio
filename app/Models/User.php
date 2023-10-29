@@ -17,6 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    //relation all table
+    //  public function Allaaccess() {
+    //     this->belongsto(About::);
+    //  }
     protected $fillable = [
         'name',
         'email',

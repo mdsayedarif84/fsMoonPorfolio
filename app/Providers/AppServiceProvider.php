@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
 use View;
-use App\Models\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,10 +23,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(){
-        View::composer('frontend.home.body',function ($view){
-            $view->with('categories', Category::where(['status'=>1])->get());
+    public function boot()
+    {
+        View::composer('frontend.home.body', function ($view) {
+            $view->with('categories', Category::where(['status' => 1])->get());
         });
-        
     }
 }

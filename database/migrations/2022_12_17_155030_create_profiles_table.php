@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',50);
+            $table->string('name', 50);
             $table->integer('user_id')->unsigned();
-            $table->string('designation',50);
-            $table->string('district',255);
-            $table->string('phone_number',20);
+            $table->string('designation', 50);
+            $table->string('district', 255);
+            $table->string('phone_number', 20);
             $table->string('image');
             $table->tinyInteger('status');
             $table->timestamp('created_at')->nullable();

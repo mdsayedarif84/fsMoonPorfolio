@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('heading',50);
-            $table->string('link',50);
-            $table->string('link_name',255);
-            $table->string('description',255);
+            $table->string('heading', 50);
+            $table->string('link', 50);
+            $table->string('link_name', 255);
+            $table->string('description', 255);
             $table->string('image');
             $table->tinyInteger('status');
             $table->timestamp('created_at')->nullable();

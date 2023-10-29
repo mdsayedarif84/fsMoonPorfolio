@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    AddCategory
+    ManageCategory
 @endsection
 @section('body')
 <div class="content-wrapper ">
@@ -42,13 +42,13 @@
                                             <td class="table-action">
                                                 @if($category->status == 1)
                                                     <a class="btn btn-success text-light btn-sm"
-                                                    href="{{ route('unpublished.cat',['id'=>$category->id]) }}"
+                                                    href="{{route('unstable-cat',['id'=>$category->id])}}"
                                                     title="Active">
                                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                                     </a>
                                                 @else
                                                     <a class="btn btn-warning btn-sm"
-                                                    href="{{ route('published.cat',['id'=>$category->id]) }}"
+                                                    href="{{route('stable-cat',['id'=>$category->id])}}"
                                                     title="Inactive">
                                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                                     </a>

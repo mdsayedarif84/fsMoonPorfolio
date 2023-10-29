@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
-
 
 class AdminAuthLoginCheck
 {
@@ -18,9 +17,9 @@ class AdminAuthLoginCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return $next($request);
-        }else{
+        } else {
             return redirect('/login');
         }
     }

@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Service;
+use Illuminate\Http\Request;
 
+class ServiceController extends Controller
+{
+    public function index()
+    {
+        $categories = Category::where('status', 1)->get();
 
-class ServiceController extends Controller{
-    public function index(){
-        $categories   =   Category::where('status',1)->get();
-        return view('admin.service.addService',['categories' => $categories]);
+        return view('admin.service.addService', ['categories' => $categories]);
     }
-    protected function validationAbout($request){
+
+    protected function validationAbout($request)
+    {
         $this->validate($request,
             [
                 'q_heading' => 'required|regex:/^[a-zA-Z\s?]*$/',
@@ -28,11 +32,13 @@ class ServiceController extends Controller{
                 'category_id.required' => 'Select Category name!',
                 'heading_name.required' => 'Write About Myself!',
                 'short_msg.required' => 'Write something You Know!',
-                'status.required' => 'You have to choose type status!'
+                'status.required' => 'You have to choose type status!',
             ]
         );
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $this->validationAbout($request);
         $about = new Service();
         $about->q_heading = $request->q_heading;
@@ -41,6 +47,7 @@ class ServiceController extends Controller{
         $about->short_msg = $request->short_msg;
         $about->status = $request->status;
         $about->save();
-        return redirect('/about')->with('message', 'Service Data Save Successfully ');;
+
+        return redirect('/about')->with('message', 'Service Data Save Successfully ');
     }
 }

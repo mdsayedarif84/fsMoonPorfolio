@@ -1,26 +1,21 @@
-@php 
-    $authType = Session::get('id');
-@endphp
 @extends('admin.master')
 @section('title')
-    AddCategory
+    AddEducation
 @endsection
 @section('body')
 <div class="content-wrapper ">
     <div class="container">
-        <marquee><h3 class="text-danger font-weight-bolder">Welcome Back Our Add Category Page.</h3></marquee>
+        <marquee><h3 class="text-danger font-weight-bolder">Welcome Back Our Add Education Page.</h3></marquee>
         <div class="card">
             @if($message   =   Session::get('message'))
                 <h1 class="text-center text-primary" id="msg">{{ $message }}</h1>
             @endif
-            
-            <h3>{{$authType->id}}</h3>
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-danger text-bold"> Add Category
+                        <h4 class="text-danger text-bold"> Add Education
                             <a href="{{route('manage.category')}}" class="btn btn-danger btn-sm float-right">
-                                <i class="far fa-hand-point-right"> </i>Manage Category</a>
+                                <i class="far fa-hand-point-right"> </i>Manage Education</a>
                         </h4>
                     </div>
                     <div class="card-body">
